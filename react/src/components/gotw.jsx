@@ -10,7 +10,7 @@ const GOTW = () => {
 
     useEffect(() => {
 
-        const getGame = async () => {
+       const getGame = async () => {
             const season = await axios
             .get('https://api.sportsdata.io/v3/nfl/scores/json/CurrentSeason?key=e566fb98844241f4b54a3260540ed665');
             const currentSeason = season.data;
@@ -59,6 +59,7 @@ const GOTW = () => {
                     <th scope="col">Horário</th>
                     <th scope="col">Mandante</th>
                     <th scope="col">Visitante</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -89,12 +90,15 @@ const GOTW = () => {
                       style={{ width: "50px", marginRight: "10px" }}
                     />
                     {teams[game.AwayTeam].name}
-                    {/* Display the team's current record in small font */}
                     <span style={{ fontSize: "0.75rem", marginLeft: "10px" }}>
                       ({teamRecord[game.AwayTeam]})
                     </span>
                   </>
                 )}
+              </td>
+              <td>
+                <p>{game.Status}</p>
+                <p>{game.HomeScore} - {game.AwayScore}</p> 
               </td>
             </tr>
           ))}

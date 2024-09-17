@@ -1,7 +1,10 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './Dashboard.css';
-import GOTW from '../GOTW';
+import Gotw from '../GOTW';
 import Jogadores from '../jogadores/jogadores';
+import Standings from '../standings/standings';
+import Lesoes from '../lesoes/lesoes';
+
 
 const Dashboard = () => {
   return (
@@ -19,22 +22,18 @@ const Dashboard = () => {
               <a className="nav-link text-white" href="/jogadores">Jogadores</a>
             </li>
             <li className="nav-item mb-3">
-              <a className="nav-link text-white" href="#">Times</a>
+              <a className="nav-link text-white" href="/standings">Rankings</a>
             </li>
             <li className="nav-item mb-3">
-              <a className="nav-link text-white" href="#">Colocação</a>
-            </li>
-            <li className="nav-item mb-3">
-              <a className="nav-link text-white" href="#">Relatório de Lesões</a>
-            </li>
-            <li className="nav-item mb-3">
-              <a className="nav-link text-white" href="#">Premiações</a>
+              <a className="nav-link text-white" href="/lesoes">Relatório de Lesões</a>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={ <GOTW/>} />
+          <Route path="/" element={ <Gotw/>} />
           <Route path="/jogadores" element={ <Jogadores/>} />
+          <Route path="/standings" element={ <Standings/>} />
+          <Route path="/lesoes" element={ <Lesoes/>} />
         </Routes>
       </div>
     </Router>
